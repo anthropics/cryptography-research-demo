@@ -1,0 +1,4 @@
+# Runtime dependency for the LEA Python code (oracle_server.py only; the C
+# attack has no third-party libraries beyond libm/pthreads).
+# Verified against Python 3.13.
+numpy==2.5.1

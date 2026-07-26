@@ -1,0 +1,7 @@
+# Runtime dependencies for the AES Python code. python/a1/ is standard
+# library only; these three are needed by python/ (tests), figures/ (plots)
+# and experiments/aes128-measured/phi/ (chi-statistics analysis).
+# Verified against Python 3.13.
+numpy==2.5.1
+scipy==1.18.0
+matplotlib==3.11.0

@@ -1,0 +1,21 @@
+// Copyright 2026 Anthropic PBC
+// SPDX-License-Identifier: Apache-2.0
+
+/* Known-answer test: verifies lea.h against the published LEA-128 test
+ * vector (WISA 2013 paper) at the full 24 rounds. Exit 0 = PASS. */
+#include <stdio.h>
+#include <string.h>
+#include "lea.h"
+int main(void){
+    uint8_t kb[16]={0x0f,0x1e,0x2d,0x3c,0x4b,0x5a,0x69,0x78,0x87,0x96,0xa5,0xb4,0xc3,0xd2,0xe1,0xf0};
+    uint8_t pb[16]={0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f};
+    uint8_t eb[16]={0x9f,0xc8,0x4e,0x35,0x28,0xc6,0xc6,0x18,0x55,0x32,0xc7,0xa7,0x04,0x64,0x8b,0xfd};
+    uint32_t k[4],x[4],e[4];
+    memcpy(k,kb,16); memcpy(x,pb,16); memcpy(e,eb,16);
+    lea_ctx c; lea_setkey(&c,k,24); lea_enc(&c,x);
+    printf("got: %08x %08x %08x %08x\n", x[0],x[1],x[2],x[3]);
+    printf("exp: %08x %08x %08x %08x\n", e[0],e[1],e[2],e[3]);
+    int ok = memcmp(x,e,16)==0;
+    printf("KAT %s\n", ok?"PASS":"FAIL");
+    return !ok;
+}

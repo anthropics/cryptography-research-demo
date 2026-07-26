@@ -1,0 +1,8 @@
+# Rust
+rust/target/
+rust/results/
+# C
+*.o
+*.out
+# Python
+__pycache__/

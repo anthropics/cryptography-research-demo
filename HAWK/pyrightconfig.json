@@ -1,0 +1,6 @@
+{
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none",
+  "pythonVersion": "3.13",
+  "exclude": ["**/.deps", "**/ref_impl"]
+}

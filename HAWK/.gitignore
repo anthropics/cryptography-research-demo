@@ -1,0 +1,19 @@
+# Run artifacts — every CLI run writes these; never committed.
+*_work/
+*.sobj
+*.unverified
+*.log
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# A run's default output, anchored to the package root.
+/recovered_sk*.bin
+
+# Built and linked by scripts/setup.sh — not committed. (hawk256_ref and
+# hawk_shim are symlinks: directory-only patterns would not match them.)
+hawk_recover/ref_impl/bgj_sieve_src/
+hawk_recover/ref_impl/hawk256_ref
+hawk_recover/ref_impl/hawk_shim
+nix/result-*
+.deps/
