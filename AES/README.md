@@ -11,6 +11,7 @@ results, so every number can be regenerated from scratch.
 | `python/` | Python single-claim checks and the pedagogical reference implementation of the attack layers (`python/a1/`) |
 | `rust/` | a second, independent implementation of the component experiments (e1–e13) |
 | `figures/` | plotting scripts that consume the TSVs written by the C programs |
+| `lean/` | Lean 4 + Mathlib formalization of the χ★ false-positive counting bound (`lean/chi-fp/`, paper §5.5) |
 
 The paper's key-recovery claims rest on `experiments/`; `c/`, `python/` and
 `rust/` check the individual components (identities, invariances, DDT
